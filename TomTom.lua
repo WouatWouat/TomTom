@@ -509,6 +509,9 @@ TomTom.texcoords = setmetatable({}, {__index = function(t, k)
 	local fIndex, lIndex = string.find(k, "(%d+)")
 	local col = string.sub(k, fIndex, lIndex)
 	fIndex2, lIndex2 = string.find(k, ":(%d+)")
+	if (fIndex == null) then
+		return null
+	end			
 	local row = string.sub(k, fIndex2+1, lIndex2)
 	col,row = tonumber(col), tonumber(row)
 	local obj = {TomTom:getCoords(col, row)}
